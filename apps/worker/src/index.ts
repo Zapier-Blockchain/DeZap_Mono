@@ -1,11 +1,12 @@
-require('dotenv').config()
-
 import { prisma} from "@repo/database";
 import { JsonObject } from "@prisma/client/runtime/library";
 import { Kafka } from "kafkajs";
 import { parse } from "./parser";
 import { sendEmail } from "./email";
 import { sendSol } from "./solana";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const TOPIC_NAME = "zap-events"
 
