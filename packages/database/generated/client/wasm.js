@@ -17,12 +17,12 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 6.2.1
- * Query Engine version: 4123509d24aa4dede1e864b46351bf2790323b69
+ * Prisma Client JS version: 6.3.0
+ * Query Engine version: acc0b9dd43eb689cbd20c9470515d719db10d0b0
  */
 Prisma.prismaVersion = {
-  client: "6.2.1",
-  engine: "4123509d24aa4dede1e864b46351bf2790323b69"
+  client: "6.3.0",
+  engine: "acc0b9dd43eb689cbd20c9470515d719db10d0b0"
 }
 
 Prisma.PrismaClientKnownRequestError = () => {
@@ -121,7 +121,51 @@ exports.Prisma.UserScalarFieldEnum = {
   id: 'id',
   name: 'name',
   email: 'email',
-  emailVerified: 'emailVerified'
+  password: 'password'
+};
+
+exports.Prisma.ZapScalarFieldEnum = {
+  id: 'id',
+  triggerId: 'triggerId',
+  userId: 'userId'
+};
+
+exports.Prisma.TriggerScalarFieldEnum = {
+  id: 'id',
+  zapId: 'zapId',
+  triggerId: 'triggerId',
+  metadata: 'metadata'
+};
+
+exports.Prisma.ActionScalarFieldEnum = {
+  id: 'id',
+  zapId: 'zapId',
+  actionId: 'actionId',
+  metadata: 'metadata',
+  sortingOrder: 'sortingOrder'
+};
+
+exports.Prisma.AvailableActionScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  image: 'image'
+};
+
+exports.Prisma.AvailableTriggerScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  image: 'image'
+};
+
+exports.Prisma.ZapRunScalarFieldEnum = {
+  id: 'id',
+  zapId: 'zapId',
+  metadata: 'metadata'
+};
+
+exports.Prisma.ZapRunOutboxScalarFieldEnum = {
+  id: 'id',
+  zapRunId: 'zapRunId'
 };
 
 exports.Prisma.SortOrder = {
@@ -129,20 +173,31 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
-exports.Prisma.NullsOrder = {
-  first: 'first',
-  last: 'last'
+exports.Prisma.JsonNullValueInput = {
+  JsonNull: Prisma.JsonNull
 };
 
-exports.Prisma.UserOrderByRelevanceFieldEnum = {
-  id: 'id',
-  name: 'name',
-  email: 'email'
+exports.Prisma.QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+};
+
+exports.Prisma.JsonNullValueFilter = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull,
+  AnyNull: Prisma.AnyNull
 };
 
 
 exports.Prisma.ModelName = {
-  User: 'User'
+  User: 'User',
+  Zap: 'Zap',
+  Trigger: 'Trigger',
+  Action: 'Action',
+  AvailableAction: 'AvailableAction',
+  AvailableTrigger: 'AvailableTrigger',
+  ZapRun: 'ZapRun',
+  ZapRunOutbox: 'ZapRunOutbox'
 };
 
 /**
