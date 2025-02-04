@@ -1,13 +1,12 @@
 require('dotenv').config()
 
-import { PrismaClient } from "@prisma/client";
+import { prisma} from "@repo/database";
 import { JsonObject } from "@prisma/client/runtime/library";
 import { Kafka } from "kafkajs";
 import { parse } from "./parser";
 import { sendEmail } from "./email";
 import { sendSol } from "./solana";
 
-const prismaClient = new PrismaClient();
 const TOPIC_NAME = "zap-events"
 
 const kafka = new Kafka({
@@ -39,7 +38,7 @@ async function main() {
           const zapRunId = parsedValue.zapRunId;
           const stage = parsedValue.stage;
 
-          const zapRunDetails = await prismaClient.zapRun.findFirst({
+          const zapRunDetails = await prisma.zapRun.findFirst({
             where: {
               id: zapRunId
             },
